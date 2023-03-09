@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 {% load static %}
@@ -45,45 +47,22 @@
 
   </head>
   <body>
-
-
   <section class="py-5 text-center container">
       <div class="row py-lg-5">
           <img class="col-lg-10 col-md-8 mx-auto">
-          <h1 class="fw-light">Desert Geeks</h1>
-          <p class="lead text-muted">Hey there, folks! We're Volt and Alex (and the whole crew), aka the Desert Geeks. We kicked off our YouTube channel back when we were living it up in the UAE, and now we're here to give you the scoop on all sorts of games. Get ready to laugh, learn, and maybe even cringe a little as we share our hilarious opinions with you!</p>
-          <p>
-              <a href="#" class="btn btn-primary my-2">YOUTUBE</a>
-              <a href="#" class="btn btn-secondary my-2">INSTAGRAM</a>
-          </p>
+          <h1 class="fw-light">Game detail</h1>
+          <p class="lead text-muted">{{ article.summary }}</p>
+
 
       </div>
-      <img src="{% static 'we.jpg' %}" height=200 width=auto>
+                <img src="{{ article.image.url}}" height=200 width=auto>
+          <p>
+              <a href="{% url 'home' %}" class="btn btn-secondary my-2">Back</a>
+          </p>
       </div>
   </section>
-  <div class="album py-2 bg-light">
-              {% for article in articles.all %}
-      <div class="container">
-              <div class="row">
-                  <div class="col-md-4">
-                      <div class="card mb-4 box-shadow">
-                          <div class="card-body">
-                              <div class="d-flex justify-content-between align-items-center">
-                                  <a href="{% url 'detail' article.id %}"><img src="{{ article.image.url }}" height=200 width=200></a>
-                                  <div class="card-body">
-                                      <p class="card-text">  {{ article.summary }}</p>
-                                  </div>
-                              </div>
-                          </div>
-                  </div>
-                  </div>
-         {% endfor %}
-                  </div>
-
-</body>
       <script src="{% static 'jquery-3.6.3.min.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
   </body>
 </html>
